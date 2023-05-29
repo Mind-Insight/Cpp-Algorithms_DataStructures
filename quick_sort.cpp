@@ -31,16 +31,16 @@ void QuickSort(int arr[], int n)
         i = left;
         j = right;
 
-        pivot = (i + j) / 2;
+        pivot = arr[(i + j) / 2];
 
         do
         {
-            while (arr[i] < arr[pivot])
+            while (arr[i] < pivot)
             {
                 // пока i-ый элемент меньше центрального
                 i++;
             }
-            while (arr[j] > arr[pivot])
+            while (arr[j] > pivot)
             {
                 // пока j-ый элемент больше центрального
                 j--;
@@ -48,9 +48,7 @@ void QuickSort(int arr[], int n)
 
             if (i <= j)
             {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                std::swap(arr[i], arr[j]);
                 i++, j--;
             }
         } while (i <= j);
@@ -72,8 +70,8 @@ void QuickSort(int arr[], int n)
                 4, 9, 7, 6, 2, 3, 8
                 l        ^        r
             */
-           stk.push(i);
-           stk.push(right);
+            stk.push(i);
+            stk.push(right);
         }
     } while (!stk.empty());
 }
