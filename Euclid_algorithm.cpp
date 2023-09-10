@@ -17,11 +17,11 @@ int lcm(int a, int b)
 
 int gcd(int a, int b)
 {
-    if (a > b)
-        swap(a, b);
-
-    long long x = a;
-    while (b % x != 0 && a % x != 0)
-        x -= 1;
-    return x;
+    while (b != 0)
+    {
+        int temp = a;
+        a = b;
+        b = temp % b;
+    }
+    return a;
 }
